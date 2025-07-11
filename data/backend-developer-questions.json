@@ -1,0 +1,34 @@
+[
+  {
+    "question": "Q. Vertical Order Traversal of a Binary Tree\nGiven a binary tree, your task is to return the vertical order traversal of its nodes' values.\nFor each node located at a position (X, Y), its left child will be at (X-...",
+    "answer": "Vertical order traversal of a binary tree is required to be implemented for given input format and constraints.\n\nImplement a function to perform vertical order traversal of a binary tree\nImplement a function to perform vertical order traversal of a binary tree\nMaintain the order of nodes based on their positions (X, Y)\nMaintain the order of nodes based on their positions (X, Y)\nHandle cases where two nodes have the same position by considering the left node first\nHandle cases where two nodes have the same position by considering the left node first\nFollow the input and output format as specified in the question\nFollow the input and output format as specified in the question"
+  },
+  {
+    "question": "Array Sum Calculation\nCalculate the sum of all elements in an array of length N.\nLine 1: An integer N indicating the size of the array.Line 2: N integers, the elements of the array, separated by spaces.",
+    "answer": "Calculate the sum of all elements in an array of length N.\n\nRead the size of the array N and then read N integers as elements of the array.\nRead the size of the array N and then read N integers as elements of the array.\nIterate through the array and add each element to a running sum.\nIterate through the array and add each element to a running sum.\nReturn the final sum as the output.\nReturn the final sum as the output."
+  },
+  {
+    "question": "Q. Remove Duplicates from String Problem Statement\nYou are provided a string STR of length N, consisting solely of lowercase English letters.\nYour task is to remove all duplicate occurrences of characters in the s...",
+    "answer": "Remove duplicate occurrences of characters in a given string.\n\nUse a hash set to keep track of characters seen so far.\nUse a hash set to keep track of characters seen so far.\nIterate through the string and add non-duplicate characters to a new string.\nIterate through the string and add non-duplicate characters to a new string.\nReturn the new string without duplicate characters.\nReturn the new string without duplicate characters."
+  },
+  {
+    "question": "Q. Reverse Words in a String: Problem Statement\nYou are given a string of length N. Your task is to reverse the string word by word. The input may contain multiple spaces between words and may have leading or trai...",
+    "answer": "Reverse words in a string while handling leading, trailing, and multiple spaces.\n\nSplit the input string by spaces to get individual words\nSplit the input string by spaces to get individual words\nReverse the order of the words\nReverse the order of the words\nJoin the reversed words with a single space in between\nJoin the reversed words with a single space in between\nHandle leading, trailing, and multiple spaces appropriately\nHandle leading, trailing, and multiple spaces appropriately"
+  },
+  {
+    "question": "Q. Reverse Rows of a Matrix Problem Statement\nYou are given a matrix and tasked with reversing the order of elements in each row. This needs to be done for every row in the matrix.\nHelp a participant named Ninja, ...",
+    "answer": "Reverse the order of elements in each row of a given matrix.\n\nIterate through each row of the matrix\nIterate through each row of the matrix\nReverse the elements in each row\nReverse the elements in each row\nReturn the modified matrix\nReturn the modified matrix"
+  },
+  {
+    "question": "Q. Reverse Linked List Problem Statement\nGiven a singly linked list of integers, return the head of the reversed linked list.\nInitial linked list: 1 -> 2 -> 3 -> 4 -> NULLReversed linked list: 4 -> 3 -> 2...",
+    "answer": "Reverse a singly linked list of integers and return the head of the reversed linked list.\n\nIterate through the linked list and reverse the pointers to point to the previous node instead of the next node.\nIterate through the linked list and reverse the pointers to point to the previous node instead of the next node.\nKeep track of the previous, current, and next nodes while reversing the linked list.\nKeep track of the previous, current, and next nodes while reversing the linked list.\nUpdate the head of the reversed linked list as the last node encountered during the reversal process.\nUpdate the head of the reversed linked list as the last node encountered during the reversal process."
+  },
+  {
+    "question": "Q. Detect Cycle in Undirected Graph Problem Statement\nYou are provided with an undirected graph composed of 'N' vertices and 'M' edges, where vertices are labeled from 1 to 'N'.\nYour task is to determine if there ...",
+    "answer": "Detect if there exists a cycle in an undirected graph.\n\nUse Depth First Search (DFS) to traverse the graph and detect cycles.\nUse Depth First Search (DFS) to traverse the graph and detect cycles.\nMaintain a visited set to keep track of visited vertices.\nMaintain a visited set to keep track of visited vertices.\nIf a visited vertex is encountered again during DFS, a cycle exists.\nIf a visited vertex is encountered again during DFS, a cycle exists.\nReturn 'Yes' if a cycle is found, 'No' otherwise.\nReturn 'Yes' if a cycle is found, 'No' otherwise."
+  },
+  {
+    "question": "Q. Zig-Zag Level Order Traversal of Binary Tree\nGiven a binary tree, your task is to perform a zigzag level order traversal. This traversal starts from left to right on the first level, then switches to right to l...",
+    "answer": "Perform zigzag level order traversal on a binary tree.\n\nUse a queue to perform level order traversal of the binary tree.\nUse a queue to perform level order traversal of the binary tree.\nAlternate between left to right and right to left traversal for each level.\nAlternate between left to right and right to left traversal for each level.\nHandle null nodes represented by -1 in the input.\nHandle null nodes represented by -1 in the input."
+  }
+]

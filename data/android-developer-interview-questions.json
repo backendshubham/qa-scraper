@@ -1,0 +1,50 @@
+[
+  {
+    "question": "Q. BST Iterator Problem Statement You are tasked with creating a class named BSTIterator that acts as an iterator for the inorder traversal of a binary search tree. Implement the following functions:  BSTIterator(...read more",
+    "answer": "Create a BSTIterator class for inorder traversal of a binary search tree.Implement a constructor that takes the root of the binary search tree and initializes the iterator.Implement next() function to return the next smallest element in the inorder traversal.Implement hasNext() function to check if there is a next element in the inorder traversal.Traverse the binary search tree in inorder to get the desired output."
+  },
+  {
+    "question": "Q. Cube Sum Pairs Problem Statement Given a positive integer N, find the number of ways to express N as a sum of cubes of two integers, A and B, such that: N = A^3 + B^3 Ensure you adhere to the following conditio...read more",
+    "answer": "The problem involves finding the number of ways to express a given positive integer as a sum of cubes of two integers.Iterate through all possible values of A and B within the given constraints.Check if A^3 + B^3 equals the given N, increment the count if true.Handle the case where A = B separately to avoid counting duplicates."
+  },
+  {
+    "question": "Q. Majority Element Problem Statement Given an array/list 'ARR' consisting of 'N' integers, your task is to find the majority element in the array. If there is no majority element present, return -1. Example: Inpu...read more",
+    "answer": "Find the majority element in an array, return -1 if no majority element is present.Iterate through the array and keep track of the count of each element using a hashmap.Check if any element's count is greater than floor(N / 2) and return it as the majority element.If no majority element is found, return -1."
+  },
+  {
+    "question": "Q. Colorful Knapsack Problem You are given a set of 'N' stones, each with a specific weight and color. The goal is to fill a knapsack with exactly 'M' stones, choosing one stone of each color, so that the total we...read more",
+    "answer": "The Colorful Knapsack Problem involves selecting one stone of each color to fill a knapsack with a given weight capacity, minimizing unused capacity.Iterate through the stones and keep track of the minimum weight for each color.Use dynamic programming to find the optimal solution by considering all possible combinations.Handle cases where the knapsack cannot be filled under the given conditions by returning -1.In the given example, the optimal solution is to select stones wit...read more"
+  },
+  {
+    "question": "Q. Find Row With Maximum 1's in a Sorted 2D Matrix You are provided with a 2D matrix containing only the integers 0 or 1. The matrix has dimensions N x M, and each row is sorted in non-decreasing order. Your objec...read more",
+    "answer": "Find the row with the maximum number of 1's in a sorted 2D matrix.Iterate through each row of the matrix and count the number of 1's in each row.Keep track of the row index with the maximum number of 1's encountered so far.Return the index of the row with the maximum number of 1's."
+  },
+  {
+    "question": "Q. Rearrange Linked List Problem Statement Given a singly linked list in the form 'L1' -> 'L2' -> 'L3' -> ... 'Ln', your task is to rearrange the nodes to the form 'L1' -> 'Ln' -> 'L2' -> 'Ln-1', etc. You must not...read more",
+    "answer": "Rearrange the nodes of a singly linked list in a specific order without altering the data of the nodes.Use two pointers to split the linked list into two halves.Reverse the second half of the linked list.Merge the two halves alternately to rearrange the nodes.Ensure to handle cases with odd and even number of nodes separately.Example: For input 1 -> 2 -> 3 -> 4 -> 5, the output should be 1 -> 5 -> 2 -> 4 -> 3."
+  },
+  {
+    "question": "Q. Find Missing Number In String Problem Statement You have a sequence of consecutive nonnegative integers. By appending all integers end-to-end, you formed a string S without any separators. During this process, ...read more",
+    "answer": "Given a string of consecutive nonnegative integers without separators, find the missing integer.Iterate through all possible splits of the string and check if the sequence is validIf the sequence is valid, return the missing integerHandle cases where there are multiple missing integers or the string is invalid"
+  },
+  {
+    "question": "Q. LRU Cache Design Question Design a data structure for a Least Recently Used (LRU) cache that supports the following operations: 1. get(key) - Return the value of the key if it exists in the cache; otherwise, re...read more",
+    "answer": "Design a Least Recently Used (LRU) cache data structure that supports get and put operations with capacity constraint.Implement a doubly linked list to keep track of the order of keys based on their recent usage.Use a hashmap to store key-value pairs for quick access and update.When capacity is reached, evict the least recently used item before inserting a new item.Update the order of keys in the linked list whenever a key is accessed or updated."
+  },
+  {
+    "question": "Q. Integer to Roman Conversion Given an integer N, convert it to its corresponding Roman numeral representation. Roman numerals comprise seven symbols: I, V, X, L, C, D, and M. Example: Input: N = 2 Output: II Exp...read more",
+    "answer": "Convert an integer to its corresponding Roman numeral representation.Create a mapping of integer values to Roman numeral symbols.Iterate through the mapping in descending order of values and build the Roman numeral representation.Subtract the largest possible value from the integer at each step and append the corresponding Roman numeral symbol.Repeat until the integer becomes 0."
+  },
+  {
+    "question": "Q. Palindrome Permutation - Problem Statement Determine if a permutation of a given string S can form a palindrome. Example: Input: string S = \"aab\" Output: \"True\" Explanation: The permutation \"aba\" of the string ...read more",
+    "answer": "Check if a permutation of a string can form a palindrome.Create a frequency map of characters in the string.Check if at most one character has an odd frequency.If yes, return True; otherwise, return False."
+  },
+  {
+    "question": "Q. Can you design a simple waste management app, given a mock server and some icons?",
+    "answer": "A waste management app to track and manage waste disposalInclude features for users to log types of waste disposedImplement a map feature to locate nearby waste disposal facilitiesAllow users to set reminders for waste collection daysIncorporate a reward system for eco-friendly waste disposal practices"
+  },
+  {
+    "question": "Q. How can you pass a simple Java object from one thread to another?",
+    "answer": "Use a Handler or AsyncTask to pass a Java object between threads.Use a Handler to send messages containing the object from one thread to another.Use AsyncTask to perform background tasks and update UI with the object on the main thread."
+  }
+]
