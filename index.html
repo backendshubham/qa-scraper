@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QA Scraper UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+    }
+    .loader {
+      border: 4px solid #2d2d2d;
+      border-top: 4px solid #06b6d4; /* cyan-400 */
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="w-full bg-[#0f172a] border-b border-cyan-400 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+      <h1 class="text-2xl font-bold text-cyan-400">🤖 QA Scraper</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center">
+    <div class="w-full max-w-2xl bg-[#1e293b] p-6 rounded-lg border border-cyan-400 shadow-lg">
+      <label class="block mb-2 text-white font-medium">Select Platform</label>
+      <select id="platform" class="w-full p-2 mb-4 rounded bg-[#334155] text-white border border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <option value="ambitionbox" selected>AmbitionBox</option>
+      </select>
+
+      <label class="block mb-2 text-white font-medium">Enter Role</label>
+      <input type="text" id="role" placeholder="e.g., backend developer" class="w-full p-2 mb-4 rounded bg-[#334155] text-white border border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+
+      <button id="generateBtn" class="bg-cyan-400 text-black w-full px-6 py-2 rounded font-bold hover:bg-cyan-300 transition">Generate Q&A</button>
+    </div>
+
+    <div id="loader" class="loader mt-6 hidden"></div>
+
+    <div id="toast" class="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-2 rounded shadow-lg hidden transition"></div>
+
+    <div id="qaContainer" class="mt-8 w-full max-w-2xl flex flex-col gap-6"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0f172a] border-t border-cyan-400 text-center py-4 shadow-inner">
+    <p class="text-sm text-cyan-400">Created by Shubham Tiwari</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('generateBtn');
+    const loader = document.getElementById('loader');
+    const toast = document.getElementById('toast');
+    const qaContainer = document.getElementById('qaContainer');
+    const roleInput = document.getElementById('role');
+
+    btn.addEventListener('click', async () => {
+      let role = roleInput.value.trim().toLowerCase().replace(/\s+/g, '-');
+
+      if (!role) {
+        showToast('Please enter a role name!', true);
+        return;
+      }
+
+      loader.classList.remove('hidden');
+      qaContainer.innerHTML = '';
+
+      try {
+        const res = await fetch(`https://qa-scraper.onrender.com/scrape/${role}`);
+        const data = await res.json();
+
+        if (!res.ok) {
+          if (res.status === 400) {
+            showToast(data.error || 'Bad request. Please check your input.', true);
+          } else if (res.status === 404) {
+            showToast(data.error || 'No questions found for this role.', true);
+          } else if (res.status === 500) {
+            showToast(data.error || 'Server error. Please try again later.', true);
+          } else {
+            showToast(data.error || 'An unexpected error occurred.', true);
+          }
+          return;
+        }
+
+        if (data.data.length === 0) {
+          showToast('No questions found for this role.', true);
+          return;
+        }
+
+        showToast('Questions loaded successfully!');
+        data.data.forEach((item, index) => {
+          const card = createQACard(item.question, item.answer, index + 1);
+          qaContainer.appendChild(card);
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (error) {
+        console.error('Fetch error:', error);
+        showToast('Failed to connect to server. Please try again.', true);
+      } finally {
+        loader.classList.add('hidden');
+      }
+    });
+
+    function createQACard(question, answer, number) {
+      const card = document.createElement('div');
+      card.className = "bg-[#334155] text-white p-5 rounded-lg border border-cyan-400 shadow hover:shadow-cyan-500/30 transition";
+
+      const heading = document.createElement('h2');
+      heading.className = "text-cyan-400 font-bold mb-2";
+      heading.textContent = `${number}. Question:`;
+
+      const questionText = document.createElement('p');
+      questionText.className = "mb-3";
+      questionText.textContent = question;
+
+      const answerHeading = document.createElement('h3');
+      answerHeading.className = "text-cyan-400 font-bold mb-1";
+      answerHeading.textContent = "Answer:";
+
+      const answerText = document.createElement('p');
+      answerText.textContent = answer;
+
+      card.appendChild(heading);
+      card.appendChild(questionText);
+      card.appendChild(answerHeading);
+      card.appendChild(answerText);
+
+      return card;
+    }
+
+    function showToast(message, isError = false) {
+      toast.textContent = message;
+      toast.className = `fixed bottom-5 right-5 px-4 py-2 rounded shadow-lg ${isError ? 'bg-red-600' : 'bg-green-600'} text-white transition`;
+      toast.classList.remove('hidden');
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
